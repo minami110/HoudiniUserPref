@@ -13,3 +13,6 @@
 
 # Keymap overrides
 **/*.keymap.overrides
+
+/config/Dialogs/
+/hud.pref
