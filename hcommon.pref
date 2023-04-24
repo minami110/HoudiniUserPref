@@ -3,5 +3,5 @@ autoSaveIncrement := 2;
 helpTags := 1;
 liveUpdates := 0;
 sendAnonymousStats := 0;
-startupPage := 1;
-timeStampToAskAboutAnonymousStats := 0;
+startupPage := 0;
+timeStampToAskAboutAnonymousStats := -1;
