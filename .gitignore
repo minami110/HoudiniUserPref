@@ -1,0 +1,8 @@
+
+# Caches and histories and logs
+**/*.history
+**/*.cache
+**/*.log
+
+# Icon caches
+**/SVGIcons.cache.serial
