@@ -3349,7 +3349,7 @@
 										},
 										{
 											"symbol":"h.pane.gview.model.seltypeedges",
-											"keys":["3","Pad3"
+											"keys":["2"
 											]
 										},
 										{
@@ -3359,17 +3359,17 @@
 										},
 										{
 											"symbol":"h.pane.gview.model.seltypepoints",
-											"keys":["2","Pad2"
+											"keys":["1"
 											]
 										},
 										{
 											"symbol":"h.pane.gview.model.seltypeprims",
-											"keys":["4","Pad4"
+											"keys":["3"
 											]
 										},
 										{
 											"symbol":"h.pane.gview.model.seltypevertices",
-											"keys":["5","Pad5"
+											"keys":["4"
 											]
 										},
 										{
@@ -3404,7 +3404,7 @@
 										},
 										{
 											"symbol":"h.pane.gview.selmode.object",
-											"keys":["1"
+											"keys":["5"
 											]
 										}
 									]
@@ -6270,7 +6270,7 @@
 												},
 												{
 													"symbol":"h.pane.gview.state.view.to_front",
-													"keys":["3","Pad3"
+													"keys":["Pad3"
 													]
 												},
 												{
@@ -6280,22 +6280,22 @@
 												},
 												{
 													"symbol":"h.pane.gview.state.view.to_persp",
-													"keys":["1","Pad1"
+													"keys":["Pad1"
 													]
 												},
 												{
 													"symbol":"h.pane.gview.state.view.to_right",
-													"keys":["4","Pad4"
+													"keys":["Pad4"
 													]
 												},
 												{
 													"symbol":"h.pane.gview.state.view.to_top",
-													"keys":["2","Pad2"
+													"keys":["Pad2"
 													]
 												},
 												{
 													"symbol":"h.pane.gview.state.view.to_uv",
-													"keys":["5","Pad5"
+													"keys":["Pad5"
 													]
 												},
 												{
@@ -6509,7 +6509,7 @@
 										},
 										{
 											"symbol":"h.pane.gview.state.new_move",
-											"keys":["T"
+											"keys":["W"
 											]
 										},
 										{
@@ -6524,12 +6524,12 @@
 										},
 										{
 											"symbol":"h.pane.gview.state.new_rotate",
-											"keys":["R"
+											"keys":["E"
 											]
 										},
 										{
 											"symbol":"h.pane.gview.state.new_scale",
-											"keys":["E"
+											"keys":["R"
 											]
 										},
 										{
@@ -7258,7 +7258,7 @@
 								},
 								{
 									"symbol":"h.pane.gview.toggle_wireshaded",
-									"keys":["W"
+									"keys":[
 									]
 								},
 								{
