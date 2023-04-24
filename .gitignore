@@ -10,3 +10,6 @@
 # UI files
 **/*.ui
 **/*.ui.3
+
+# Keymap overrides
+**/*.keymap.overrides
