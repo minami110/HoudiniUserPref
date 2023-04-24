@@ -6,3 +6,7 @@
 
 # Icon caches
 **/SVGIcons.cache.serial
+
+# UI files
+**/*.ui
+**/*.ui.3
