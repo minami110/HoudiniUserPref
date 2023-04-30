@@ -14,5 +14,11 @@
 # Keymap overrides
 **/*.keymap.overrides
 
+# Help cache
+/config/Help/
+
+# HDA Library backup
+/otls/backup/
+
 /config/Dialogs/
 /hud.pref
