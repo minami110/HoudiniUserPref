@@ -20,5 +20,8 @@
 # HDA Library backup
 /otls/backup/
 
+# Internal web browser cache
+/QtWebEngine/
+
 /config/Dialogs/
 /hud.pref
