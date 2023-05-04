@@ -166,7 +166,7 @@ ViewPivotBGColor:	1.0 0.2 0.2	# BG ignored if same as FG.
 ViewPivotFGColor:	1.0 0.2 0.2	# View pivot indicator colors, with
 WarningColor:	1.0 0.85 0.0	# color of warning messages
 WireOverColor:	0.15 0.15 0.15	# color of wires in Wire Shaded modes
-WireframeColor:	0.15 0.15 0.15	# wireframe line color
+WireframeColor:	0.4 0.4 0.4	# wireframe line color
 XaxesColor:	1.0 0.15 0.23	# sticky x axis
 YaxesColor:	0.46 1.0 0.02	# sticky y axis
 ZaxesColor:	0.05 0.36 0.87	# sticky z axis
