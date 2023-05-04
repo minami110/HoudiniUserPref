@@ -6195,7 +6195,7 @@
 												},
 												{
 													"symbol":"h.pane.gview.state.view.load_quickprev",
-													"keys":["0","Pad0"
+													"keys":[
 													]
 												},
 												{
@@ -7258,7 +7258,7 @@
 								},
 								{
 									"symbol":"h.pane.gview.toggle_wireshaded",
-									"keys":[
+									"keys":["Pad0"
 									]
 								},
 								{
