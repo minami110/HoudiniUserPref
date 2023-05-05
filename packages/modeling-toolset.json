@@ -1,0 +1,11 @@
+{
+  "path": "$MODELING_TOOLSET",
+  "load_package_once": true,
+  "enable": "houdini_version >= '19.0'",
+  "version": "1.0",
+  "env": [
+    {
+      "MODELING_TOOLSET": "$HOUDINI_USER_PREF_DIR/packages/modeling-toolset"
+    }
+  ]
+}
