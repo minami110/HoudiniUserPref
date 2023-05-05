@@ -1,0 +1,3 @@
+[submodule "packages/modeling-toolset"]
+	path = packages/modeling-toolset
+	url = https://github.com/minami110/modeling-toolset.git
