@@ -25,3 +25,11 @@
 
 /config/Dialogs/
 /hud.pref
+
+# Miscs
+/vhda.config
+/palette
+/scriptedpalette
+/lopedit.json
+/lopscenegraphdetails.json
+/hchanneleditor.pref
