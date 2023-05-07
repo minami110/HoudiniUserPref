@@ -1,7 +1,7 @@
 {
 	"name":"Minami",
 	"version":1,
-	"houdini.version":"19.5.569",
+	"houdini.version":"19.5.605",
 	"symbol":"",
 	"contexts":[
 		{
@@ -3095,22 +3095,22 @@
 												},
 												{
 													"symbol":"h.pane.gview.model.sel.convertedge",
-													"keys":["Ctrl+#"
-													]
-												},
-												{
-													"symbol":"h.pane.gview.model.sel.convertpoint",
 													"keys":["Ctrl+@"
 													]
 												},
 												{
+													"symbol":"h.pane.gview.model.sel.convertpoint",
+													"keys":["Ctrl+!"
+													]
+												},
+												{
 													"symbol":"h.pane.gview.model.sel.convertprimitive",
-													"keys":["Ctrl+$"
+													"keys":["Ctrl+#"
 													]
 												},
 												{
 													"symbol":"h.pane.gview.model.sel.convertvertex",
-													"keys":["Ctrl+%"
+													"keys":["Ctrl+$"
 													]
 												},
 												{
@@ -10529,7 +10529,7 @@
 								},
 								{
 									"symbol":"h.pane.wsheet.jump",
-									"keys":["I","Enter"
+									"keys":["I"
 									]
 								},
 								{
