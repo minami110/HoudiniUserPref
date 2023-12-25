@@ -1,7 +1,7 @@
 {
 	"name":"Minami",
 	"version":1,
-	"houdini.version":"19.5.605",
+	"houdini.version":"19.5.805",
 	"symbol":"",
 	"contexts":[
 		{
@@ -4523,6 +4523,27 @@
 													"description":"These keys apply to the muscleconstraintpropertiesvellum operation.",
 													"actions":[
 														{
+															"symbol":"h.pane.gview.state.sop.muscleconstraintpropertiesvellum.A_key",
+															"label":"Add New Muscle Constraints",
+															"description":"Add New Muscle Constraints",
+															"keys":[
+															]
+														},
+														{
+															"symbol":"h.pane.gview.state.sop.muscleconstraintpropertiesvellum.B_key",
+															"label":"Select Muscle to Bone Candidates",
+															"description":"Select Muscle to Bone Candidates",
+															"keys":[
+															]
+														},
+														{
+															"symbol":"h.pane.gview.state.sop.muscleconstraintpropertiesvellum.C_key",
+															"label":"Select Muscle to Muscle Candidates",
+															"description":"Select Muscle to Muscle Candidates",
+															"keys":[
+															]
+														},
+														{
 															"symbol":"h.pane.gview.state.sop.muscleconstraintpropertiesvellum.hotkey1",
 															"label":"Add New Muscle Constraints",
 															"description":"Add New Muscle Constraints",
@@ -4555,6 +4576,13 @@
 															"label":"Link Selected Muscles to Muscle Tension Line",
 															"description":"Select and link a Muscle Tension Line to the  current muscle selection.",
 															"keys":["L"
+															]
+														},
+														{
+															"symbol":"h.pane.gview.state.sop.muscleflex.set_keyframe",
+															"label":"Set Keyframe",
+															"description":"Set Keyframe",
+															"keys":[
 															]
 														},
 														{
@@ -4613,6 +4641,13 @@
 													"label":"muscleproperties Operation",
 													"description":"These keys apply to the muscleproperties operation.",
 													"actions":[
+														{
+															"symbol":"h.pane.gview.state.sop.muscleproperties.A_key",
+															"label":"Add New Muscle Properties",
+															"description":"Add New Muscle Properties",
+															"keys":[
+															]
+														},
 														{
 															"symbol":"h.pane.gview.state.sop.muscleproperties.hotkey1",
 															"label":"Add New Muscle Properties",
@@ -6299,6 +6334,11 @@
 													]
 												},
 												{
+													"symbol":"h.pane.gview.state.view.toggle_2d_pan_and_zoom",
+													"keys":[
+													]
+												},
+												{
 													"symbol":"h.pane.gview.state.view.toggle_first_person",
 													"keys":["M","Alt+M"
 													]
@@ -6315,7 +6355,7 @@
 												},
 												{
 													"symbol":"h.pane.gview.state.view.toggle_view_context",
-													"keys":["Y"
+													"keys":["PadStar"
 													]
 												},
 												{
@@ -6793,7 +6833,7 @@
 								},
 								{
 									"symbol":"h.pane.gview.decrease_handle_size",
-									"keys":["&","PadSlash"
+									"keys":["&"
 									]
 								},
 								{
@@ -6888,7 +6928,7 @@
 								},
 								{
 									"symbol":"h.pane.gview.increase_handle_size",
-									"keys":["*","PadStar"
+									"keys":["*"
 									]
 								},
 								{
@@ -10604,12 +10644,12 @@
 								},
 								{
 									"symbol":"h.pane.wsheet.layout",
-									"keys":["Shift+L"
+									"keys":["L"
 									]
 								},
 								{
 									"symbol":"h.pane.wsheet.layout_all",
-									"keys":["L"
+									"keys":[
 									]
 								},
 								{
