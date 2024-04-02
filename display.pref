@@ -1,7 +1,7 @@
 {
     COMMON_RENDERING_OPTIONS
     {
-        colorscheme ( dg )
+        colorscheme ( bw )
         auxcolor ( n )
         visibleobjects ( * )
         primmask ( 4294967295 )
@@ -622,8 +622,8 @@
     fgImageEnable ( 1 )
     fgImageDepth ( 1 )
 }
-near ( 0.0998508 )
-far ( 99850.8 )
+near ( 0.175558 )
+far ( 24441.1 )
 fov ( 45 )
 adjustlimits ( 3 )
 orthogrid_spacing ( 0.2 0.2 )
