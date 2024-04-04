@@ -1,0 +1,58 @@
+{
+	"fileversion":"19.0.548",
+	"name":"view",
+	"categories":"Standard",
+	"pane":"scene",
+	"label":"View",
+	"type":"submenu",
+	"items":{
+		"0":{
+			"label":"Contained",
+			"type":"script_action",
+			"icon":"TOOLS_select_contained",
+			"script":"radialmenu.setPickingContainedGeometry(kwargs, not radialmenu.isPickingContainedGeometry(kwargs))"
+		},
+		"1":{
+			"label":"MatCap",
+			"type":"script_action",
+			"icon":"VIEW_matcap",
+			"script":"radialmenu.setShadingMode(kwargs, hou.glShadingType.MatCap)"
+		},
+		"2":{
+			"label":"MatCap Wire",
+			"type":"script_action",
+			"icon":"VIEW_matcap_wireframe",
+			"script":"radialmenu.setShadingMode(kwargs, hou.glShadingType.MatCapWire)"
+		},
+		"3":{
+			"label":"Smooth Wire Shaded",
+			"type":"script_action",
+			"icon":"VIEW_smooth_wireframe",
+			"script":"radialmenu.setShadingMode(kwargs, hou.glShadingType.SmoothWire)"
+		},
+		"4":{
+			"label":"Smooth Shaded",
+			"type":"script_action",
+			"icon":"VIEW_smooth",
+			"script":"radialmenu.setShadingMode(kwargs, hou.glShadingType.Smooth)"
+		},
+		"5":{
+			"label":"Box",
+			"type":"script_action",
+			"icon":"TOOLS_select_mode_boxselect",
+			"script":"radialmenu.setPickStyle(kwargs, hou.pickStyle.Box)"
+		},
+		"6":{
+			"label":"Laser",
+			"type":"script_action",
+			"icon":"TOOLS_select_mode_laser",
+			"script":"radialmenu.setPickStyle(kwargs, hou.pickStyle.Laser)"
+		},
+		"7":{
+			"label":"Visible",
+			"type":"script_action",
+			"icon":"TOOLS_select_visible",
+			"script":"radialmenu.setPickingVisibleGeometry(kwargs, not radialmenu.isPickingVisibleGeometry(kwargs))"
+		}
+	}
+}
