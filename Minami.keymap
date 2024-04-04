@@ -1,7 +1,7 @@
 {
 	"name":"Minami",
 	"version":1,
-	"houdini.version":"20.0.547",
+	"houdini.version":"20.0.653",
 	"symbol":"",
 	"contexts":[
 		{
@@ -4651,6 +4651,13 @@
 															]
 														},
 														{
+															"symbol":"h.pane.gview.state.sop.apexanimate.cycleAlignmentMode",
+															"label":"Cycle Alignment Modes",
+															"description":"Cycle Alignment Modes",
+															"keys":[
+															]
+														},
+														{
 															"symbol":"h.pane.gview.state.sop.apexanimate.cycle_xform_mode",
 															"label":"Cycle Mode",
 															"description":"Cycle Mode",
@@ -4735,10 +4742,31 @@
 															]
 														},
 														{
+															"symbol":"h.pane.gview.state.sop.apexanimate.n_customTools",
+															"label":"N_CUSTOMTOOLS",
+															"description":"N_CUSTOMTOOLS",
+															"keys":[
+															]
+														},
+														{
+															"symbol":"h.pane.gview.state.sop.apexanimate.pivot_mode",
+															"label":"Toggle Pivot Mode",
+															"description":"Toggle Pivot Mode",
+															"keys":["Shift+'"
+															]
+														},
+														{
 															"symbol":"h.pane.gview.state.sop.apexanimate.reload",
 															"label":"reload",
 															"description":"reload",
 															"keys":["N"
+															]
+														},
+														{
+															"symbol":"h.pane.gview.state.sop.apexanimate.shift_h_customTools",
+															"label":"SHIFT_H_CUSTOMTOOLS",
+															"description":"SHIFT_H_CUSTOMTOOLS",
+															"keys":["Shift+H"
 															]
 														}
 													]
@@ -7429,12 +7457,12 @@
 														},
 														{
 															"symbol":"h.pane.gview.state.sop.topobuild.brush",
-															"keys":["$"
+															"keys":["Shift+4"
 															]
 														},
 														{
 															"symbol":"h.pane.gview.state.sop.topobuild.build",
-															"keys":["!"
+															"keys":["Shift+1"
 															]
 														},
 														{
@@ -7474,7 +7502,7 @@
 														},
 														{
 															"symbol":"h.pane.gview.state.sop.topobuild.skin",
-															"keys":["^"
+															"keys":["Shift+6"
 															]
 														},
 														{
@@ -7489,12 +7517,12 @@
 														},
 														{
 															"symbol":"h.pane.gview.state.sop.topobuild.slide",
-															"keys":["@"
+															"keys":["Shift+2"
 															]
 														},
 														{
 															"symbol":"h.pane.gview.state.sop.topobuild.smooth",
-															"keys":["%"
+															"keys":["Shift+5"
 															]
 														},
 														{
@@ -7504,7 +7532,7 @@
 														},
 														{
 															"symbol":"h.pane.gview.state.sop.topobuild.split",
-															"keys":["#"
+															"keys":["Shift+3"
 															]
 														},
 														{
