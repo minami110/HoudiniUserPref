@@ -33,3 +33,6 @@
 /lopedit.json
 /lopscenegraphdetails.json
 /hchanneleditor.pref
+
+# Backup files
+backup/
