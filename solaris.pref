@@ -14,4 +14,3 @@ panesshowpostlayers := 1;
 panesshowviewportstage := 0;
 pathparametercompletion := 1;
 showresolvedpaths := 0;
-usesimplifiedlinkerui := 0;
