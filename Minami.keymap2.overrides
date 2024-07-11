@@ -35,6 +35,26 @@
 			]
 		},
 		{
+			"symbol":"h.pane.gview.model.sel",
+			"bindings":[
+				{
+					"action":"h.pane.gview.model.sel.convertedge",
+					"keys":["Ctrl+Shift+2"
+					]
+				},
+				{
+					"action":"h.pane.gview.model.sel.convertpoint",
+					"keys":["Ctrl+Shift+1"
+					]
+				},
+				{
+					"action":"h.pane.gview.model.sel.convertprimitive",
+					"keys":["Ctrl+Shift+3"
+					]
+				}
+			]
+		},
+		{
 			"symbol":"h.pane.gview.selmode",
 			"bindings":[
 				{
