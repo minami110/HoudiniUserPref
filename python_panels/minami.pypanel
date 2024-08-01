@@ -28,12 +28,10 @@ def SetHydraRendererRedshift(enable):
 
 
 # Check if the current Template Display Set is in wireframe mode
-def IsTemplateShadedModelWired() -> bool:
-    templateDisplaySet = GetViewportSettings().displaySet(
-        hou.displaySetType.TemplateModel
-    )
-    templateShadedMode: hou.glShadingType = templateDisplaySet.shadedMode()
-    return templateShadedMode in [
+def IsShadedModelWired(type: hou.displaySetType) -> bool:
+    displaySet = GetViewportSettings().displaySet(type)
+    shadedMode: hou.glShadingType = displaySet.shadedMode()
+    return shadedMode in [
         hou.glShadingType.SmoothWire,
         hou.glShadingType.FlatWire,
         hou.glShadingType.MatCapWire,
@@ -41,10 +39,8 @@ def IsTemplateShadedModelWired() -> bool:
 
 
 # Change wireframe on current Template Display Set
-def SetTemplateShadedModeWired(enable: bool) -> None:
-    templateDisplaySet = GetViewportSettings().displaySet(
-        hou.displaySetType.TemplateModel
-    )
+def SetShadedModeWired(type: hou.displaySetType, enable: bool) -> None:
+    templateDisplaySet = GetViewportSettings().displaySet(type)
     templateShadedMode: hou.glShadingType = templateDisplaySet.shadedMode()
     if (
         templateShadedMode == hou.glShadingType.MatCapWire
@@ -69,40 +65,36 @@ def SetTemplateShadedModeWired(enable: bool) -> None:
         )
 
 
-def _get_template_shaded_mode_major_index() -> int:
-    templateDisplaySet = GetViewportSettings().displaySet(
-        hou.displaySetType.TemplateModel
-    )
-    templateShadedMode: hou.glShadingType = templateDisplaySet.shadedMode()
-    if templateShadedMode in [hou.glShadingType.MatCap, hou.glShadingType.MatCapWire]:
+def _get_shaded_mode_major_index(type: hou.displaySetType) -> int:
+    dispset = GetViewportSettings().displaySet(type)
+    shadedMode: hou.glShadingType = dispset.shadedMode()
+    if shadedMode in [hou.glShadingType.MatCap, hou.glShadingType.MatCapWire]:
         return 0
-    elif templateShadedMode in [hou.glShadingType.Flat, hou.glShadingType.FlatWire]:
+    elif shadedMode in [hou.glShadingType.Flat, hou.glShadingType.FlatWire]:
         return 1
-    elif templateShadedMode in [hou.glShadingType.Smooth, hou.glShadingType.SmoothWire]:
+    elif shadedMode in [hou.glShadingType.Smooth, hou.glShadingType.SmoothWire]:
         return 2
     return 0
 
 
-def _set_template_shaded_mode_major_index(index: int) -> None:
-    templateDisplaySet = GetViewportSettings().displaySet(
-        hou.displaySetType.TemplateModel
-    )
+def _set_shaded_mode_major_index(type: hou.displaySetType, index: int) -> None:
+    dispset = GetViewportSettings().displaySet(type)
     if index == 0:
-        templateDisplaySet.setShadedMode(
+        dispset.setShadedMode(
             hou.glShadingType.MatCapWire
-            if IsTemplateShadedModelWired()
+            if IsShadedModelWired(type)
             else hou.glShadingType.MatCap
         )
     elif index == 1:
-        templateDisplaySet.setShadedMode(
+        dispset.setShadedMode(
             hou.glShadingType.FlatWire
-            if IsTemplateShadedModelWired()
+            if IsShadedModelWired(type)
             else hou.glShadingType.Flat
         )
     elif index == 2:
-        templateDisplaySet.setShadedMode(
+        dispset.setShadedMode(
             hou.glShadingType.SmoothWire
-            if IsTemplateShadedModelWired()
+            if IsShadedModelWired(type)
             else hou.glShadingType.Smooth
         )
 
@@ -121,10 +113,30 @@ def _construct_display_menu():
             hou.viewportGuide.DisplayNodes, x > 0
         )
     )
+    
+    # Shading mode menu --------------
+    shadingMode = QtWidgets.QComboBox()
+    shadingMode.addItem("MatCap")
+    shadingMode.addItem("Flat")
+    shadingMode.addItem("Smooth")
+    shadingMode.setCurrentIndex(_get_shaded_mode_major_index(hou.displaySetType.DisplayModel))
+    shadingMode.currentIndexChanged.connect(
+        lambda x: _set_shaded_mode_major_index(hou.displaySetType.DisplayModel, x)
+    )
+
+    # Wire checkbox ------------------
+    cb_wireframe = QtWidgets.QCheckBox("Wireframe")
+    if IsShadedModelWired(hou.displaySetType.DisplayModel):
+        cb_wireframe.setCheckState(QtCore.Qt.Checked)
+    else:
+        cb_wireframe.setCheckState(QtCore.Qt.Unchecked)
+    cb_wireframe.stateChanged.connect(lambda x: SetShadedModeWired(hou.displaySetType.DisplayModel, x > 0))
 
     # return layout
     vbox = QtWidgets.QVBoxLayout()
     vbox.addWidget(cb_show)
+    vbox.addWidget(shadingMode)
+    vbox.addWidget(cb_wireframe)
     return vbox
 
 
@@ -134,7 +146,7 @@ def _construct_template_menu():
         GetViewportSettings().displaySet(hou.displaySetType.TemplateModel)
     )
 
-    # Show checkbox
+    # Show checkbox -------------------
     cb_show = QtWidgets.QCheckBox("Show")
     if viewportSettings.guideEnabled(hou.viewportGuide.TemplateGeometry):
         cb_show.setCheckState(QtCore.Qt.Checked)
@@ -151,18 +163,18 @@ def _construct_template_menu():
     shadingMode.addItem("MatCap")
     shadingMode.addItem("Flat")
     shadingMode.addItem("Smooth")
-    shadingMode.setCurrentIndex(_get_template_shaded_mode_major_index())
+    shadingMode.setCurrentIndex(_get_shaded_mode_major_index(hou.displaySetType.TemplateModel))
     shadingMode.currentIndexChanged.connect(
-        lambda x: _set_template_shaded_mode_major_index(x)
+        lambda x: _set_shaded_mode_major_index(hou.displaySetType.TemplateModel, x)
     )
 
     # Wire checkbox
     cb_wireframe = QtWidgets.QCheckBox("Wireframe")
-    if IsTemplateShadedModelWired():
+    if IsShadedModelWired(hou.displaySetType.TemplateModel):
         cb_wireframe.setCheckState(QtCore.Qt.Checked)
     else:
         cb_wireframe.setCheckState(QtCore.Qt.Unchecked)
-    cb_wireframe.stateChanged.connect(lambda x: SetTemplateShadedModeWired(x > 0))
+    cb_wireframe.stateChanged.connect(lambda x: SetShadedModeWired(hou.displaySetType.TemplateModel, x > 0))
 
     # Ghosted checkbox
     cb_ghosted = QtWidgets.QCheckBox("Ghosted")
@@ -200,17 +212,26 @@ def _construct_template_menu():
 
 
 def onCreateInterface():
-    widget = QtWidgets.QWidget()
     viewportSettings = GetViewportSettings()
 
     # Checkbox (Remove Backfaces) -------------------
-    checkbox1 = QtWidgets.QCheckBox("Remove Backfaces")
+    checkbox1 = QtWidgets.QCheckBox("Backfaces")
     if viewportSettings.removeBackfaces():
-        checkbox1.setCheckState(QtCore.Qt.Checked)
-    else:
         checkbox1.setCheckState(QtCore.Qt.Unchecked)
+    else:
+        checkbox1.setCheckState(QtCore.Qt.Checked)
     checkbox1.stateChanged.connect(
-        lambda x: GetViewportSettings().setRemoveBackfaces(x > 0)
+        lambda x: GetViewportSettings().setRemoveBackfaces(x == 0)
+    )
+    
+    # Checkbox (Geometry Color)
+    cb_geocol = QtWidgets.QCheckBox("Geometry color")
+    if viewportSettings.showingGeometryColor():
+        cb_geocol.setCheckState(QtCore.Qt.Checked)
+    else:
+        cb_geocol.setCheckState(QtCore.Qt.Unchecked)
+    cb_geocol.stateChanged.connect(
+        lambda x: GetViewportSettings().showGeometryColor(x > 0)
     )
 
     vbox_disp = _construct_display_menu()
@@ -224,9 +245,9 @@ def onCreateInterface():
     # layout (Display Settings)
     vbox1 = QtWidgets.QVBoxLayout()
     vbox1.addWidget(checkbox1)
+    vbox1.addWidget(cb_geocol)
     vbox1.addWidget(gbox_disp)
     vbox1.addWidget(gbox_temp)
-    vbox1.addStretch()
     groupbox1 = QtWidgets.QGroupBox("Display Settings")
     groupbox1.setLayout(vbox1)
 
@@ -239,7 +260,6 @@ def onCreateInterface():
     # layout (Solaris Quick)
     vbox2 = QtWidgets.QVBoxLayout()
     vbox2.addWidget(checkboxDefautRedshift)
-    vbox2.addStretch()
     groupbox2 = QtWidgets.QGroupBox("LOPs")
     groupbox2.setLayout(vbox2)
 
@@ -247,9 +267,16 @@ def onCreateInterface():
     vboxGlobal = QtWidgets.QVBoxLayout()
     vboxGlobal.addWidget(groupbox1)
     vboxGlobal.addWidget(groupbox2)
-    widget.setLayout(vboxGlobal)
+    vboxGlobal.addStretch()
 
-    return widget
+    widget = QtWidgets.QWidget()
+    widget.setLayout(vboxGlobal)
+    
+    scroll = QtWidgets.QScrollArea()
+    scroll.setWidgetResizable(True)
+    scroll.setWidget(widget)
+
+    return scroll
 ]]></script>
     <includeInPaneTabMenu menu_position="0" create_separator="false"/>
     <includeInToolbarMenu menu_position="202" create_separator="true"/>
