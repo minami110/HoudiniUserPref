@@ -36,5 +36,8 @@
 # Asset store
 /asset_store
 
+# Toolbar
+/toolbar
+
 # Backup files
 backup/
