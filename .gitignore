@@ -1,4 +1,3 @@
-
 # Caches and histories and logs
 **/*.history
 **/*.cache
@@ -33,6 +32,9 @@
 /lopedit.json
 /lopscenegraphdetails.json
 /hchanneleditor.pref
+
+# Asset store
+/asset_store
 
 # Backup files
 backup/
