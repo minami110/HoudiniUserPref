@@ -1,7 +1,7 @@
 {
 	"name":"Minami",
 	"version":2,
-	"houdini.version":"20.5.278",
+	"houdini.version":"20.5.312",
 	"symbol":"",
 	"contexts":[
 		{
@@ -85,6 +85,16 @@
 			]
 		},
 		{
+			"symbol":"h.pane.gview.state.sop.capturelayerpaint",
+			"bindings":[
+				{
+					"action":"h.pane.gview.state.sop.capturelayerpaint.select",
+					"keys":["G"
+					]
+				}
+			]
+		},
+		{
 			"symbol":"h.pane.gview.state.view",
 			"bindings":[
 				{
@@ -100,6 +110,16 @@
 				{
 					"action":"h.pane.gview.state.view.to_top",
 					"keys":["Pad2"
+					]
+				}
+			]
+		},
+		{
+			"symbol":"h.pane.wsheet",
+			"bindings":[
+				{
+					"action":"h.pane.wsheet.jump",
+					"keys":["I"
 					]
 				}
 			]
