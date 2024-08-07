@@ -98,9 +98,40 @@ def _set_shaded_mode_major_index(type: hou.displaySetType, index: int) -> None:
             else hou.glShadingType.Smooth
         )
 
+def _set_shaded_mode(type: hou.displaySetType, index: int) -> None:
+    dispset = GetViewportSettings().displaySet(type)
+    if index == 0:
+        dispset.setShadedMode(
+            hou.glShadingType.HiddenLineInvisible
+        )
+    elif index == 1:
+        dispset.setShadedMode(
+            hou.glShadingType.Smooth
+        )
+        
+def _construct_current_menu():
+    viewportSettings = GetViewportSettings()
+    dispset: hou.GeometryViewportDisplaySet = viewportSettings.displaySet(hou.displaySetType.CurrentModel)
+    
+    # Shading mode menu --------------
+    shadingMode = QtWidgets.QComboBox()
+    shadingMode.addItem("Hidden Line Invisible")
+    shadingMode.addItem("Smooth Shaded")
+    shadingMode.currentIndexChanged.connect(
+        lambda x: _set_shaded_mode(hou.displaySetType.CurrentModel, x)
+    )
+    
+    # return layout
+    vbox = QtWidgets.QVBoxLayout()
+
+    vbox.addWidget(shadingMode)
+
+    return vbox
+
 
 def _construct_display_menu():
     viewportSettings = GetViewportSettings()
+    dispset: hou.GeometryViewportDisplaySet = viewportSettings.displaySet(hou.displaySetType.DisplayModel)
 
     # Show checkbox -------------------
     cb_show = QtWidgets.QCheckBox("Show")
@@ -131,20 +162,37 @@ def _construct_display_menu():
     else:
         cb_wireframe.setCheckState(QtCore.Qt.Unchecked)
     cb_wireframe.stateChanged.connect(lambda x: SetShadedModeWired(hou.displaySetType.DisplayModel, x > 0))
+    
+    # Ghosted checkbox
+    cb_ghosted = QtWidgets.QCheckBox("Ghosted")
+    if dispset.isUsingGhostedLook():
+        cb_ghosted.setCheckState(QtCore.Qt.Checked)
+    else:
+        cb_ghosted.setCheckState(QtCore.Qt.Unchecked)
+    cb_ghosted.stateChanged.connect(lambda x: dispset.useGhostedLook(x > 0))
+
+    # Draw as X-Ray checkbox
+    cb_xray = QtWidgets.QCheckBox("X-Ray")
+    if dispset.isUsingXRay():
+        cb_xray.setCheckState(QtCore.Qt.Checked)
+    else:
+        cb_xray.setCheckState(QtCore.Qt.Unchecked)
+    cb_xray.stateChanged.connect(lambda x: dispset.useXRay(x > 0))
 
     # return layout
     vbox = QtWidgets.QVBoxLayout()
     vbox.addWidget(cb_show)
     vbox.addWidget(shadingMode)
     vbox.addWidget(cb_wireframe)
+    vbox.addWidget(cb_ghosted)
+    vbox.addWidget(cb_xray)
     return vbox
 
 
 def _construct_template_menu():
     viewportSettings = GetViewportSettings()
-    templateDisplaySet: hou.GeometryViewportDisplaySet = (
-        GetViewportSettings().displaySet(hou.displaySetType.TemplateModel)
-    )
+    templateDisplaySet: hou.GeometryViewportDisplaySet = viewportSettings.displaySet(hou.displaySetType.TemplateModel)
+    
 
     # Show checkbox -------------------
     cb_show = QtWidgets.QCheckBox("Show")
@@ -184,14 +232,6 @@ def _construct_template_menu():
         cb_ghosted.setCheckState(QtCore.Qt.Unchecked)
     cb_ghosted.stateChanged.connect(lambda x: templateDisplaySet.useGhostedLook(x > 0))
 
-    # Faded checkbox
-    cb_faded = QtWidgets.QCheckBox("Faded")
-    if templateDisplaySet.isUsingFadedLook():
-        cb_faded.setCheckState(QtCore.Qt.Checked)
-    else:
-        cb_faded.setCheckState(QtCore.Qt.Unchecked)
-    cb_faded.stateChanged.connect(lambda x: templateDisplaySet.useFadedLook(x > 0))
-
     # Draw as X-Ray checkbox
     cb_xray = QtWidgets.QCheckBox("X-Ray")
     if templateDisplaySet.isUsingXRay():
@@ -206,7 +246,6 @@ def _construct_template_menu():
     vbox.addWidget(shadingMode)
     vbox.addWidget(cb_wireframe)
     vbox.addWidget(cb_ghosted)
-    vbox.addWidget(cb_faded)
     vbox.addWidget(cb_xray)
     return vbox
 
@@ -233,19 +272,24 @@ def onCreateInterface():
     cb_geocol.stateChanged.connect(
         lambda x: GetViewportSettings().showGeometryColor(x > 0)
     )
+    
+    vbox_curr = _construct_current_menu()
+    gbox_curr = QtWidgets.QGroupBox("Current")
+    gbox_curr.setLayout(vbox_curr)
 
     vbox_disp = _construct_display_menu()
-    gbox_disp = QtWidgets.QGroupBox("Display Model Geometry")
+    gbox_disp = QtWidgets.QGroupBox("Display")
     gbox_disp.setLayout(vbox_disp)
 
     vbox_temp = _construct_template_menu()
-    gbox_temp = QtWidgets.QGroupBox("Template Model Geometry")
+    gbox_temp = QtWidgets.QGroupBox("Template")
     gbox_temp.setLayout(vbox_temp)
 
     # layout (Display Settings)
     vbox1 = QtWidgets.QVBoxLayout()
     vbox1.addWidget(checkbox1)
     vbox1.addWidget(cb_geocol)
+    vbox1.addWidget(gbox_curr)
     vbox1.addWidget(gbox_disp)
     vbox1.addWidget(gbox_temp)
     groupbox1 = QtWidgets.QGroupBox("Display Settings")
