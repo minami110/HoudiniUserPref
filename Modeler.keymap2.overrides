@@ -1,19 +1,9 @@
 {
-	"name":"Minami",
+	"name":"Modeler",
 	"version":2,
-	"houdini.version":"20.5.312",
+	"houdini.version":"20.5.332",
 	"symbol":"",
 	"contexts":[
-		{
-			"symbol":"h.pane.gview",
-			"bindings":[
-				{
-					"action":"h.pane.gview.toggle_wireshaded",
-					"keys":[
-					]
-				}
-			]
-		},
 		{
 			"symbol":"h.pane.gview.model",
 			"bindings":[
@@ -45,26 +35,6 @@
 			]
 		},
 		{
-			"symbol":"h.pane.gview.state",
-			"bindings":[
-				{
-					"action":"h.pane.gview.state.new_move",
-					"keys":["W"
-					]
-				},
-				{
-					"action":"h.pane.gview.state.new_rotate",
-					"keys":["E"
-					]
-				},
-				{
-					"action":"h.pane.gview.state.new_scale",
-					"keys":["R"
-					]
-				}
-			]
-		},
-		{
 			"symbol":"h.pane.gview.state.view",
 			"bindings":[
 				{
@@ -80,16 +50,6 @@
 				{
 					"action":"h.pane.gview.state.view.to_top",
 					"keys":["Pad2"
-					]
-				}
-			]
-		},
-		{
-			"symbol":"h.pane.wsheet",
-			"bindings":[
-				{
-					"action":"h.pane.wsheet.jump",
-					"keys":["I"
 					]
 				}
 			]
