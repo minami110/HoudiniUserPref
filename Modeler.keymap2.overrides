@@ -5,6 +5,26 @@
 	"symbol":"",
 	"contexts":[
 		{
+			"symbol":"h.pane.gview",
+			"bindings":[
+				{
+					"action":"h.pane.gview.tool:modeler::bevel",
+					"keys":["B"
+					]
+				},
+				{
+					"action":"h.pane.gview.tool:modeler::bridge",
+					"keys":["Shift+B"
+					]
+				},
+				{
+					"action":"h.pane.gview.tool:modeler::extrude",
+					"keys":["E"
+					]
+				}
+			]
+		},
+		{
 			"symbol":"h.pane.gview.model",
 			"bindings":[
 				{
