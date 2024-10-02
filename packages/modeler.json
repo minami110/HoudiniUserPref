@@ -1,0 +1,9 @@
+{
+    "path": "$MODELER_PATH",
+    "enable": "houdini_version >= '20.5'",
+    "env": [
+        {
+            "MODELER_PATH": "$HOUDINI_USER_PREF_DIR/packages/modeler"
+        }
+    ]
+}
