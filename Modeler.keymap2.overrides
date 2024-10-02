@@ -1,7 +1,7 @@
 {
 	"name":"Modeler",
 	"version":2,
-	"houdini.version":"20.5.332",
+	"houdini.version":"20.5.370",
 	"symbol":"",
 	"contexts":[
 		{
@@ -29,6 +29,26 @@
 			"bindings":[
 				{
 					"action":"h.pane.gview.selmode.object",
+					"keys":[
+					]
+				}
+			]
+		},
+		{
+			"symbol":"h.pane.gview.state",
+			"bindings":[
+				{
+					"action":"h.pane.gview.state.new_move",
+					"keys":[
+					]
+				},
+				{
+					"action":"h.pane.gview.state.new_rotate",
+					"keys":[
+					]
+				},
+				{
+					"action":"h.pane.gview.state.new_scale",
 					"keys":[
 					]
 				}
