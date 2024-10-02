@@ -9,30 +9,30 @@ root {
     split 0.175781 H {
         split 0.661692 V {
             tabs 0 0 {
-                pane panetab2 -a 1 -l 10 -H /obj/ -T OBJ -m pythonpanel
+                pane panetab2 -a 0 -l 10 -H /obj/clare/ -T SOP -m pythonpanel
             }
             tabs 0 0 {
-                pane panetab4 -a 1 -l 10 -H /obj/ -T OBJ -m pythonpanel
+                pane panetab4 -a 0 -l 10 -H /obj/clare/ -T SOP -m pythonpanel
             }
         }
         split 0.680263 H {
             split 0.159204 V {
                 tabs 0 0 {
-                    pane panetab1 -a 1 -l 10 -H /obj/ -T OBJ -m sceneview
+                    pane panetab1 -a 1 -l 10 -H /obj/clare/ -T SOP -m sceneview
                 }
                 tabs 0 0 {
-                    pane panetab6 -a 1 -l 10 -H /obj/ -T OBJ -m pythonpanel
+                    pane panetab6 -a 1 -l 10 -H /obj/clare/ -T SOP -m pythonpanel
                 }
             }
             tabs 0 0 {
-                pane panetab11 -a 0 -l 0 -H /obj/ -T OBJ -m neteditor
+                pane panetab11 -a 0 -l 0 -H /obj/clare/ -T SOP -m neteditor
             }
         }
     }
 
-    panel panel1 -w 402 -1067 1320 932 -X {
+    panel panel1 -w 427 295 1320 932 {
         tabs 0 0 {
-            pane panetab3 -a 0 -l 10 -H /obj/ -T OBJ -m sceneview
+            pane panetab3 -a 0 -l 10 -H /obj/clare/ -T SOP -m sceneview
         }
     }
 }
@@ -47,7 +47,7 @@ viewtype -t ortho_front ${DESKNAME}.panetab1.world.`vpname("${DESKNAME}.panetab1
 viewtype -t perspective ${DESKNAME}.panetab1.world.`vpname("${DESKNAME}.panetab1.world",1)`
 viewtype -t perspective ${DESKNAME}.panetab1.world.`vpname("${DESKNAME}.panetab1.world",2)`
 pythonpanel -s on -t off -n sesi_bookmarks_editor panetab6
-networkeditor -p '{\n	"taskgraphcollapsemode":"Off",\n	"backgroundimageediting":"0",\n	"gridxstep":"2.0",\n	"overviewmode":"2",\n	"workitemattrtocollapseby":"",\n	"showparmdialogmax":"1",\n	"showtaskgraphperf":"0",\n	"palettecolors":"",\n	"obj:listmode":"0",\n	"showtree":"0",\n	"taskgraphsortcriteria":"Automatic",\n	"showparmdialog":"1",\n	"showtimedep":"0",\n	"showspareinputdep":"1",\n	"taskgraphperfstatname":"Cook Time",\n	"showmenu":"1",\n	"taskgraphsortdirection":"0",\n	"typesidebarsplit":"0.25",\n	"showdep":"2",\n	"showtasksmenu":"1",\n	"showcopsmenu":"1",\n	"treesplit":"0.25",\n	"palettemode":"0",\n	"gridmode":"1",\n	"showgrouplist":"0",\n	"gridystep":"1.0",\n	"showperfstats":"1",\n	"overviewbounds":"0.000000 0.000000 111.763403 216.300000",\n	"perfstatname":"Time",\n	"palettesize":"150 150",\n	"grouplistsplit":"0.75",\n	"showchilddep":"1",\n	"backgroundimagebrightness":"1.0",\n	"workitemcolorattribute":"",\n	"useworkitemcolorattribute":"0",\n	"showtypesidebar":"0"\n}\n' panetab11
+networkeditor -p '{\n	"taskgraphcollapsemode":"Off",\n	"backgroundimageediting":"0",\n	"gridxstep":"2.0",\n	"overviewmode":"2",\n	"workitemattrtocollapseby":"",\n	"showparmdialogmax":"1",\n	"showtaskgraphperf":"0",\n	"palettecolors":"",\n	"obj:listmode":"0",\n	"showtree":"0",\n	"taskgraphsortcriteria":"Automatic",\n	"showparmdialog":"1",\n	"showtimedep":"0",\n	"showspareinputdep":"1",\n	"taskgraphperfstatname":"Cook Time",\n	"showmenu":"1",\n	"taskgraphsortdirection":"0",\n	"typesidebarsplit":"0.25",\n	"showdep":"2",\n	"showtasksmenu":"1",\n	"showcopsmenu":"1",\n	"treesplit":"0.25",\n	"palettemode":"0",\n	"gridmode":"1",\n	"showgrouplist":"0",\n	"gridystep":"1.0",\n	"showperfstats":"1",\n	"overviewbounds":"0.000000 0.000000 107.336165 207.731796",\n	"perfstatname":"Time",\n	"palettesize":"150 150",\n	"grouplistsplit":"0.75",\n	"showchilddep":"1",\n	"backgroundimagebrightness":"1.0",\n	"workitemcolorattribute":"",\n	"useworkitemcolorattribute":"0",\n	"showtypesidebar":"0"\n}\n' panetab11
 netcolumns -c display,xray,select,origin,capture,bone -n OBJ panetab11
 netcolumns -c display,render,template,selectabletemplate,highlight,unload,bypass,lock -n SOP panetab11
 netcolumns -c delscript,comment -n CHOPNET panetab11
