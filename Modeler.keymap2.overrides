@@ -5,8 +5,23 @@
 	"symbol":"",
 	"contexts":[
 		{
+			"symbol":"h.pane",
+			"bindings":[
+				{
+					"action":"h.pane.closetab",
+					"keys":["Alt+/"
+					]
+				}
+			]
+		},
+		{
 			"symbol":"h.pane.gview",
 			"bindings":[
+				{
+					"action":"h.pane.gview.toggle_wireshaded",
+					"keys":["Ctrl+W"
+					]
+				},
 				{
 					"action":"h.pane.gview.tool:modeler::bevel",
 					"keys":["B"
@@ -16,10 +31,15 @@
 					"action":"h.pane.gview.tool:modeler::bridge",
 					"keys":["Shift+B"
 					]
-				},
+				}
+			]
+		},
+		{
+			"symbol":"h.pane.gview.handle",
+			"bindings":[
 				{
-					"action":"h.pane.gview.tool:modeler::extrude",
-					"keys":["E"
+					"action":"h.pane.gview.handle.volatile_edit_pivot_mode",
+					"keys":["Print"
 					]
 				}
 			]
@@ -59,17 +79,17 @@
 			"bindings":[
 				{
 					"action":"h.pane.gview.state.new_move",
-					"keys":[
+					"keys":["W"
 					]
 				},
 				{
 					"action":"h.pane.gview.state.new_rotate",
-					"keys":[
+					"keys":["E"
 					]
 				},
 				{
 					"action":"h.pane.gview.state.new_scale",
-					"keys":[
+					"keys":["R"
 					]
 				}
 			]
