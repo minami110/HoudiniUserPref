@@ -1,0 +1,16 @@
+{
+    "path": "$Z_FOR_HOUDINI_PATH",
+    "enable": "houdini_version >= '20.5'",
+    "version": "2024.0",
+    "env": [
+        {
+            "Z_FOR_HOUDINI_PATH": "$HOUDINI_USER_PREF_DIR/packages/zforhoudini"
+        },
+        {
+            "ZBRUSH_EXEC_PATH": "C:/Program Files/Maxon ZBrush 2023/ZBrush.exe"
+        },
+        {
+            "ZBRUSH_CACHE_PATH": "${TEMP}/Z for Houdini Cache"
+        }
+    ]
+}

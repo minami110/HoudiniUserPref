@@ -4,3 +4,6 @@
 [submodule "packages/modeler"]
 	path = packages/modeler
 	url = https://github.com/minami110/Modeler
+[submodule "packages/zforhoudini"]
+	path = packages/zforhoudini
+	url = https://github.com/minami110/zforhoudini.git
