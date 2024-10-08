@@ -1,0 +1,12 @@
+{
+    "python.defaultInterpreterPath": "C:/Program Files/Side Effects Software/Houdini 20.5.370/bin/hython.exe",
+    "python.analysis.autoFormatStrings": true,
+    "python.autoComplete.extraPaths": [
+        "C:/Program Files/Side Effects Software/Houdini 20.5.370/houdini/python3.11libs",
+    ], 
+    "python.analysis.extraPaths": [
+        "C:/Program Files/Side Effects Software/Houdini 20.5.370/houdini/python3.11libs",
+    ],
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "python.analysis.typeCheckingMode": "basic",
+}
